@@ -23,6 +23,8 @@ Atualizado em 24/11/2026.
 - [x] Anotações editáveis nos cartões, com prévia no quadro e expansão de textos longos.
 - [x] Favicon personalizada com o símbolo de raio da marca SEO Prospect.
 - [x] Telefones importados de cabeçalhos CSV variados e ações de Ligar e WhatsApp nos cartões.
+- [x] Área de soltura de CSV compacta e recuperação automática quando o arraste é cancelado.
+- [x] Abertura do WhatsApp sem mensagem automática preenchida.
 
 ## Implementado, aguardando credenciais
 
