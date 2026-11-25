@@ -20,6 +20,7 @@ Atualizado em 24/11/2026.
 - [x] Quadro principal estilo Trello com cartões arrastáveis e persistência automática das etapas.
 - [x] Gravação do quadro compatível com Vercel Blob sem conflito indevido de ETag.
 - [x] Importação de CSV por arrastar e soltar em qualquer tela ou na central de importação.
+- [x] Anotações editáveis nos cartões, com prévia no quadro e expansão de textos longos.
 
 ## Implementado, aguardando credenciais
 
