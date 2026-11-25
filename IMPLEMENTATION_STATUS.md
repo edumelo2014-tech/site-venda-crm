@@ -17,6 +17,7 @@ Atualizado em 24/11/2026.
 - [x] Interface responsiva, tema claro/escuro e sidebar recolhível.
 - [x] Login mestre com sessão HttpOnly assinada e limite de tentativas.
 - [x] Persistência privada na Vercel por meio do Vercel Blob.
+- [x] Quadro principal estilo Trello com cartões arrastáveis e persistência automática das etapas.
 
 ## Implementado, aguardando credenciais
 
