@@ -22,6 +22,7 @@ Atualizado em 24/11/2026.
 - [x] Importação de CSV por arrastar e soltar em qualquer tela ou na central de importação.
 - [x] Anotações editáveis nos cartões, com prévia no quadro e expansão de textos longos.
 - [x] Favicon personalizada com o símbolo de raio da marca SEO Prospect.
+- [x] Telefones importados de cabeçalhos CSV variados e ações de Ligar e WhatsApp nos cartões.
 
 ## Implementado, aguardando credenciais
 
