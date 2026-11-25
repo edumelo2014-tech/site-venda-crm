@@ -5,8 +5,8 @@ export const metadata: Metadata = {
   title: "SEO Prospect CRM",
   description: "Prospecção, diagnóstico e vendas de sites em um só lugar.",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: "/favicon.svg?v=2",
+    shortcut: "/favicon.svg?v=2",
   },
 };
 
