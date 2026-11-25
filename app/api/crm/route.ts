@@ -15,16 +15,16 @@ const now=()=>new Date().toISOString(); const uuid=()=>crypto.randomUUID();
 const clean=(v:unknown,max=240)=>String(v??"").trim().slice(0,max);
 const money=(v:unknown)=>{const n=Number(v);return Number.isFinite(n)?Math.max(0,Math.round(n*100)):0};
 
-async function loadStore():Promise<{data:Store;etag?:string}>{
+async function loadStore():Promise<{data:Store}>{
   if(!process.env.VERCEL){const fs=await import("node:fs/promises");try{return{data:JSON.parse(await fs.readFile(localPath,"utf8"))}}catch{return{data:blank()}}}
   const result=await get(pathName,{access:"private",useCache:false}); if(!result||result.statusCode!==200)return{data:blank()};
-  return{data:JSON.parse(await new Response(result.stream).text()),etag:result.blob.etag};
+  return{data:JSON.parse(await new Response(result.stream).text())};
 }
-async function saveStore(data:Store,etag?:string){
+async function saveStore(data:Store){
   if(!process.env.VERCEL){const fs=await import("node:fs/promises");await fs.mkdir(".local-data",{recursive:true});await fs.writeFile(localPath,JSON.stringify(data));return}
-  await put(pathName,JSON.stringify(data),{access:"private",contentType:"application/json",allowOverwrite:true,...(etag?{ifMatch:etag}:{})});
+  await put(pathName,JSON.stringify(data),{access:"private",contentType:"application/json",allowOverwrite:true});
 }
-async function mutate(fn:(s:Store,ownerId:string)=>void|{imported:number}){for(let i=0;i<3;i++){const ownerId=await requireMasterApi();const{data,etag}=await loadStore();const result=fn(data,ownerId);try{await saveStore(data,etag);return result}catch(e){if(i===2)throw e}}}
+async function mutate(fn:(s:Store,ownerId:string)=>void|{imported:number}){const ownerId=await requireMasterApi();const{data}=await loadStore();const result=fn(data,ownerId);await saveStore(data);return result}
 function errorResponse(error:unknown){const message=error instanceof Error?error.message:"Erro inesperado";return Response.json({error:message==="UNAUTHORIZED"?"Sessão expirada.":message},{status:message==="UNAUTHORIZED"?401:message.includes("horário")||message.includes("cadastrada")?409:500})}
 const base=(ownerId:string,isDemo=false)=>({id:uuid(),ownerId,isDemo,createdAt:now(),updatedAt:now()});
 

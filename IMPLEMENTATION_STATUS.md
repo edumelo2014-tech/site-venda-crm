@@ -18,6 +18,8 @@ Atualizado em 24/11/2026.
 - [x] Login mestre com sessão HttpOnly assinada e limite de tentativas.
 - [x] Persistência privada na Vercel por meio do Vercel Blob.
 - [x] Quadro principal estilo Trello com cartões arrastáveis e persistência automática das etapas.
+- [x] Gravação do quadro compatível com Vercel Blob sem conflito indevido de ETag.
+- [x] Importação de CSV por arrastar e soltar em qualquer tela ou na central de importação.
 
 ## Implementado, aguardando credenciais
 
